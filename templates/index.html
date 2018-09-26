@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-size: 3rem;
+            }
+            #wrapper {
+                clear: both;
+            }
+            #metadata, #qr {
+                width: 50%;
+                float: left;
+            }
+            #qr img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="metadata">
+                <p><b>Network Name:</b><br/> {{ ssid|safe }}</p>
+                <p><b>Authentication Method:</b><br/> {{ authentication_method_name }}</p>
+                <p><b>Password:</b><br/> {{ password|safe }}</p>
+                <p><b>Valid Until:</b><br/> {{ valid_until }}</p>
+            </div>
+            <div id="qr">
+                <img src="data:image/svg+xml;base64,{{qr}}">
+            </div>
+        </div>
+    </body>
+</html>
